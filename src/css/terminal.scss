@@ -1,0 +1,68 @@
+@import 'variables';
+
+body {
+  background-color: $bg-color;
+}
+
+.terminal {
+  background-color: $bg-color;
+  font: $primary-font-size $primary-font-stack;
+  color: $primary-text-color;
+  margin: 20px;
+  padding: 30px;
+  width: 42%;
+  border: 1px solid white;
+  overflow-y: auto;
+  height: 500px;
+}
+
+.command-line, .command-line-input {
+  position: relative;
+  display: inline-block;
+  min-width: 0px;
+  white-space: pre-wrap;
+  overflow-x: hidden;
+}
+
+.command-line-input {
+  word-wrap: break-word;
+}
+
+.command-line::before {
+  content: ">\00a0";
+}
+
+.typer-cursor {
+  opacity: 1;
+  animation: blink 1.0s infinite;
+  background: $primary-text-color;
+}
+
+.typer-cursor-solid {
+  opacity: 1;
+  background: $primary-text-color;
+}
+
+.cursor-solid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -$primary-font-size/1.5;
+  display: inline-block;
+  background-color: $cursor-color;
+  vertical-align: top;
+  width: $primary-font-size/2;
+  height: $primary-font-size;
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
